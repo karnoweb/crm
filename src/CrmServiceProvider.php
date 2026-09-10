@@ -100,6 +100,10 @@ class CrmServiceProvider extends ServiceProvider
             ], 'crm-config');
 
             $this->publishes([
+                __DIR__ . '/../database/migrations' => database_path('migrations'),
+            ], 'crm-migrations');
+
+            $this->publishes([
                 __DIR__ . '/../lang' => lang_path('vendor/crm'),
             ], 'crm-lang');
         }
