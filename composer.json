@@ -1,0 +1,68 @@
+{
+    "name": "karnoweb/crm",
+    "description": "Domain CRM package for Laravel: leads, interactions, pipelines, segments, and campaigns. Data and events only — no host-domain actions.",
+    "type": "library",
+    "license": "MIT",
+    "keywords": [
+        "laravel",
+        "crm",
+        "leads",
+        "pipeline",
+        "campaigns"
+    ],
+    "authors": [
+        {
+            "name": "Karnoweb",
+            "email": "info@karnoweb.com"
+        }
+    ],
+    "version": "13.0.0",
+    "require": {
+        "php": "^8.3",
+        "illuminate/console": "^13.0",
+        "illuminate/database": "^13.0",
+        "illuminate/events": "^13.0",
+        "illuminate/support": "^13.0",
+        "spatie/laravel-schemaless-attributes": "^2.5"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^11.0",
+        "phpunit/phpunit": "^11.0|^12.0|^13.0",
+        "laravel/pint": "^1.18"
+    },
+    "autoload": {
+        "psr-4": {
+            "Karnoweb\\Crm\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Karnoweb\\Crm\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Karnoweb\\Crm\\CrmServiceProvider"
+            ],
+            "aliases": {
+                "Crm": "Karnoweb\\Crm\\Facades\\Crm"
+            }
+        }
+    },
+    "scripts": {
+        "test": "phpunit",
+        "pint": "pint --format agent"
+    },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://mirror2.chabokan.net/composer/"
+        },
+        {
+            "packagist.org": false
+        }
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
