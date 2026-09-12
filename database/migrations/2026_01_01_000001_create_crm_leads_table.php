@@ -7,7 +7,8 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 use Karnoweb\Crm\Support\CrmSchema;
 
-return new class extends Migration {
+return new class extends Migration
+{
     public function up(): void
     {
         Schema::create('crm_leads', function (Blueprint $table): void {
@@ -28,7 +29,7 @@ return new class extends Migration {
             $table->string('rfm_monetary_currency')->nullable();
             $table->timestamp('rfm_monetary_at')->nullable();
             $table->string('rfm_segment')->nullable();
-            $table->timestamp('captured_at');
+            $table->timestamp('captured_at')->useCurrent();
             $table->timestamp('converted_at')->nullable();
             $table->timestamp('archived_at')->nullable();
             $table->timestamp('first_seen_at')->nullable();

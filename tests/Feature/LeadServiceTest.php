@@ -32,6 +32,19 @@ final class LeadServiceTest extends TestCase
         Event::assertDispatched(LeadCreated::class, fn (LeadCreated $event) => $event->leadId === $lead->id);
     }
 
+    public function test_create_without_captured_at_persists_a_non_null_captured_at(): void
+    {
+        $lead = Crm::leads()->create([
+            'name' => 'No Capture Time',
+            'source' => 'web',
+        ]);
+
+        $lead->refresh();
+
+        $this->assertNotNull($lead->captured_at);
+        $this->assertNotNull($lead->getRawOriginal('captured_at'));
+    }
+
     public function test_lead_created_is_not_published_on_rollback(): void
     {
         Event::fake([LeadCreated::class]);

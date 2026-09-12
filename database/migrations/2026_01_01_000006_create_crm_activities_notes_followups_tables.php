@@ -7,7 +7,8 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 use Karnoweb\Crm\Support\CrmSchema;
 
-return new class extends Migration {
+return new class extends Migration
+{
     public function up(): void
     {
         Schema::create('crm_activities', function (Blueprint $table): void {
@@ -36,7 +37,7 @@ return new class extends Migration {
             $table->id();
             $table->string('subject_type');
             $table->unsignedBigInteger('subject_id');
-            $table->timestamp('due_at');
+            $table->dateTime('due_at');
             CrmSchema::assignedTo($table);
             $table->timestamp('notified_at')->nullable();
             $table->timestamps();

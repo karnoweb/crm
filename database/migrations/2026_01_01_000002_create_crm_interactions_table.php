@@ -6,7 +6,8 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration {
+return new class extends Migration
+{
     public function up(): void
     {
         Schema::create('crm_interactions', function (Blueprint $table): void {
@@ -21,7 +22,7 @@ return new class extends Migration {
             $table->string('source_id')->nullable();
             $table->string('idempotency_key');
             $table->json('metadata')->nullable();
-            $table->timestamp('occurred_at');
+            $table->timestamp('occurred_at')->useCurrent();
             $table->timestamps();
 
             $table->unique(['lead_id', 'idempotency_key']);

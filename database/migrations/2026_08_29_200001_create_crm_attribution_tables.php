@@ -7,7 +7,8 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 use Karnoweb\Crm\Support\CrmSchema;
 
-return new class extends Migration {
+return new class extends Migration
+{
     public function up(): void
     {
         Schema::create('crm_attributions', function (Blueprint $table): void {
@@ -42,8 +43,8 @@ return new class extends Migration {
             $table->unsignedBigInteger('deal_id')->nullable()->index();
             CrmSchema::assignedTo($table, 'credited_to');
             $table->string('source');
-            $table->timestamp('opens_at');
-            $table->timestamp('closes_at');
+            $table->dateTime('opens_at');
+            $table->dateTime('closes_at');
             $table->boolean('is_active')->default(true);
             CrmSchema::branchKey($table);
             $table->json('metadata')->nullable();
